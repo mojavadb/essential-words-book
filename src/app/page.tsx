@@ -6,10 +6,5 @@ export default async function Home() {
 
   console.log(data);
 
-  return (
-    <div>
-      <h1>Welcome to the Essential Words App</h1>
-      <p>Your one-stop solution for learning essential vocabulary.</p>
-    </div>
-  );
+  return <div></div>;
 }
