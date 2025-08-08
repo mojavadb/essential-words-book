@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { CircleX, ClosedCaption, Text } from "lucide-react";
+import { CircleX, Text } from "lucide-react";
 import Logo from "./Logo";
 import Link from "next/link";
 
