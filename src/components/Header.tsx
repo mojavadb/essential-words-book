@@ -19,11 +19,11 @@ function Header() {
     <header className="px-8 py-4 sm:px-16 bg-neutral-100 text-black flex items-center justify-between relative">
       {/* Mobile Menu Button */}
       <div className="md:hidden relative flex items-center">
-        <button onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="mx-1" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <CircleX /> : <Text />}
         </button>
         {menuOpen && (
-          <ul className="absolute top-8 right-0 w-48 bg-white shadow-lg rounded-md z-50">
+          <ul className="absolute top-8 right-2 w-48 bg-white shadow-lg rounded-md z-50">
             {navigation.map((item) => (
               <li
                 key={item.title}

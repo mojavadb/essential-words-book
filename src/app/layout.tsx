@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${vazirmatn.className} antialiased text-base`}
       >
         <Header />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

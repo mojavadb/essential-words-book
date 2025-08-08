@@ -1,3 +1,4 @@
+import Intro from "@/components/Intro";
 const BASE_URL = "http://localhost:3000";
 
 export default async function Home() {
@@ -6,5 +7,9 @@ export default async function Home() {
 
   console.log(data);
 
-  return <div></div>;
+  return (
+    <main>
+      <Intro />
+    </main>
+  );
 }
