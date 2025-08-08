@@ -1,18 +1,34 @@
 import { Download, MoveLeft } from "lucide-react";
 import React from "react";
+import { Kanit } from "next/font/google";
+import Image from "next/image";
+
+const kanit = Kanit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
+});
 
 function Intro() {
   return (
-    <div className="py-36">
-      <h1 className="direction-ltr flex justify-center items-center text-3xl sm:text-5xl lg:text-[50px]">
+    <div
+      className="my-36 max-w-3xl mx-auto text-center w-11/12 flex flex-col 
+      justify-center items-center gap-4"
+    >
+      <div className="">
+        <Image src="./essential-word-pic.jpg" alt="504 essential words" />
+      </div>
+      <h1
+        className={`${kanit.className} direction-ltr flex justify-center 
+        items-center text-4xl sm:text-6xl lg:text-[55px] text-stone-900`}
+      >
         <span>504 absolutely essential words</span>
       </h1>
 
-      <h3 className="flex justify-center items-center text-xl md:text-2xl mb-3">
+      <h3 className="flex justify-center items-center text-xl md:text-2xl text-stone-900">
         <span>۵۰۴ واژه ضروری انگلیسی</span>
       </h3>
 
-      <p className="max-w-2xl mx-auto my-4">
+      <p className="max-w-2xl mx-auto my-4 text-justify text-stone-700">
         من به طراحی و توسعه برنامه‌های وب تعاملی و کاربرپسند علاقه‌مندم. به
         فناوری‌های پایه فرانت‌اند مسلط هستم و تجربه کار با تکنولوژی‌های مدرن
         برنامه‌نویسی سمت کاربر را دارم. همچنین، علاقه‌مندم در پروژه‌های بزرگ و
