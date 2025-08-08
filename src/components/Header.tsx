@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Ellipsis } from "lucide-react";
+import { CircleX, ClosedCaption, Text } from "lucide-react";
 import Logo from "./Logo";
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ function Header() {
       {/* Mobile Menu Button */}
       <div className="md:hidden relative flex items-center">
         <button onClick={() => setMenuOpen(!menuOpen)}>
-          <Ellipsis />
+          {menuOpen ? <CircleX /> : <Text />}
         </button>
         {menuOpen && (
           <ul className="absolute top-8 right-0 w-48 bg-white shadow-lg rounded-md z-50">
