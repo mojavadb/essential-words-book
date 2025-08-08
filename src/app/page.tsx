@@ -1,4 +1,4 @@
-import Intro from "@/components/Intro";
+import Intro from "@/components/Header";
 const BASE_URL = "http://localhost:3000";
 
 export default async function Home() {
