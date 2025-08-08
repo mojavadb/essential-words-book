@@ -20,7 +20,7 @@ function Introduction() {
       </h2>
       <p
         className="
-      max-w-2xl mx-auto text-stone-400 text-xs"
+      max-w-2xl mx-auto text-stone-500 text-xs"
       >
         توجه: با کلیک روی هر جمله میتوانید ترجمه آنرا ببینید!
       </p>
