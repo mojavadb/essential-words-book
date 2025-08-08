@@ -10,7 +10,7 @@ const kanit = Kanit({
 
 function Header() {
   return (
-    <div
+    <header
       className="my-12 max-w-3xl mx-auto text-center w-11/12 flex flex-col 
       justify-center items-center gap-4"
     >
@@ -75,7 +75,7 @@ function Header() {
           <MoveLeft size={20} />
         </a>
       </div>
-    </div>
+    </header>
   );
 }
 

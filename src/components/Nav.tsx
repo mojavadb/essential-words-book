@@ -16,7 +16,7 @@ function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="px-8 py-4 sm:px-16 bg-neutral-100 text-black flex items-center justify-between relative">
+    <nav className="px-8 py-4 sm:px-16 bg-neutral-100 text-black flex items-center justify-between relative">
       {/* Mobile Menu Button */}
       <div className="md:hidden relative flex items-center">
         <button className="mx-1" onClick={() => setMenuOpen(!menuOpen)}>
@@ -58,7 +58,7 @@ function Nav() {
       <div className="text-blue-600 text-sm md:rounded-full md:text-white md:bg-blue-800 md:px-4 md:py-1.5 hover:bg-blue-700 transition">
         <Link href="/">شروع</Link>
       </div>
-    </header>
+    </nav>
   );
 }
 

@@ -1,4 +1,5 @@
-import Intro from "@/components/Header";
+import Header from "@/components/Header";
+import Introduction from "@/components/Introduction";
 const BASE_URL = "http://localhost:3000";
 
 export default async function Home() {
@@ -9,7 +10,8 @@ export default async function Home() {
 
   return (
     <main>
-      <Intro />
+      <Header />
+      <Introduction />
     </main>
   );
 }
