@@ -16,7 +16,7 @@ function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="px-8 py-4 sm:px-16 bg-neutral-100 text-black flex items-center justify-between relative">
+    <nav className="sticky top-0 px-8 py-4 sm:px-16 bg-neutral-100 text-black flex items-center justify-between relative">
       {/* Mobile Menu Button */}
       <div className="md:hidden relative flex items-center">
         <button className="mx-1" onClick={() => setMenuOpen(!menuOpen)}>
