@@ -4,7 +4,7 @@ import React from "react";
 function Intro() {
   return (
     <div className="py-36">
-      <h1 className="flex justify-center items-center text-3xl sm:text-5xl lg:text-[50px]">
+      <h1 className="direction-ltr flex justify-center items-center text-3xl sm:text-5xl lg:text-[50px]">
         <span>504 absolutely essential words</span>
       </h1>
 
