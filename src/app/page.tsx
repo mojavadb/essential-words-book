@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Introduction from "@/components/Introduction";
+import Status from "@/components/Status";
 const BASE_URL = "http://localhost:3000";
 
 export default async function Home() {
@@ -12,6 +13,7 @@ export default async function Home() {
     <main>
       <Header />
       <Introduction />
+      <Status />
     </main>
   );
 }
