@@ -9,7 +9,7 @@ const kanit = Kanit({
 function Introduction() {
   return (
     <section
-      className="my-36 max-w-3xl mx-auto text-center w-11/12 flex flex-col 
+      className="py-36 max-w-3xl mx-auto text-center w-11/12 flex flex-col 
     justify-center items-center gap-4"
     >
       <h2
