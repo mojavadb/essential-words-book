@@ -6,7 +6,7 @@ const kanit = Kanit({
   weight: ["400", "500", "600", "700", "900"],
 });
 
-function Lists() {
+function Status() {
   return (
     <header
       className="py-18 max-w-3xl mx-auto text-center w-11/12 flex flex-col 
@@ -26,4 +26,4 @@ function Lists() {
   );
 }
 
-export default Lists;
+export default Status;
