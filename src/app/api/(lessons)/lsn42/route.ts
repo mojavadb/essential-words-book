@@ -257,6 +257,27 @@ export function GET(request: Request) {
           "آن‌ها به‌صورت رأی مخفی رأی دادند.",
         ],
       },
+      {
+        id: 504,
+        pronunciation: "candidate",
+        imageUrl: "",
+        word: "candidate",
+        definition: "person who is proposed for some office orhonor",
+        synonyms: ["volunteer", "applicant"],
+        examples: [
+          "We can have a maximum of four candidates for the office of president.",
+          "Each candidate for mayor seemed confident he would be victorious.",
+          "Derek Jeter is a candidate for baseball's Hall of Fame.",
+        ],
+        wordPr: "نامزد، کاندید",
+        definitionPr: "فرآیند رأی دادن، معمولاً به‌صورت مخفیانه",
+        synonymsPr: ["رأی", "رأی‌گیری", "انتخابات"],
+        examplesPr: [
+          "ما می‌توانیم حداکثر چهار نامزد برای مقام ریاست جمهوری داشته باشیم.",
+          "به نظر می‌رسید هر یک از نامزدهای شهرداری از پیروزی خود مطمئن بودند.",
+          "درک جتر نامزد عضویت در تالار مشاهیر بیسبال شد.",
+        ],
+      },
     ],
   };
 
