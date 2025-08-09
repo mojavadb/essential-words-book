@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Kanit } from "next/font/google";
 
@@ -8,19 +10,16 @@ const kanit = Kanit({
 
 function Introduction() {
   return (
-    <section
-      className="py-18 max-w-3xl mx-auto text-center w-11/12 flex flex-col 
-    justify-center items-center gap-4"
-    >
+    <section className="py-18 px-4 bg-blue-50">
       <h2
         className={`${kanit.className} direction-ltr flex justify-center 
-        items-center text-4xl sm:text-6xl lg:text-[55px] text-stone-900`}
+        items-center text-4xl sm:text-6xl lg:text-[55px] text-stone-900 mb-3`}
       >
         Introduction
       </h2>
       <p
-        className="
-      max-w-2xl mx-auto text-stone-500 text-xs"
+        className="flex justify-center items-center max-w-2xl mx-auto text-stone-500 
+        text-xs"
       >
         توجه: با کلیک روی هر جمله میتوانید ترجمه آنرا ببینید!
       </p>
