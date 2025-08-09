@@ -64,8 +64,8 @@ function Introduction() {
       >
         توجه: با کلیک روی هر جمله میتوانید ترجمه آنرا ببینید!
       </p>
-      <div className="grid gap-6 md:gap-12 md:grid-cols-4">
-        <div className="md:col-span-1">
+      <div className="grid gap-6 md:gap-12 lg:grid-cols-4">
+        <div className="lg:col-span-1">
           <div
             className="max-w-sm rounded-xl overflow-hidden shadow-md
           border border-gray-100 transition-all duration-300"
@@ -92,8 +92,8 @@ function Introduction() {
             </div>
           </div>
         </div>
-        <div className="md:col-span-3">
-          <div className="grid md:grid-cols-2 gap-4 direction-ltr">
+        <div className="lg:col-span-3">
+          <div className="grid lg:grid-cols-2 gap-4 direction-ltr">
             {paragraphs?.map((paragraph, parIndex) => (
               <div
                 key={parIndex}
