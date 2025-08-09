@@ -31,6 +31,7 @@ function Introduction() {
   const [isShowTranslate, setIsShowTranslate] = React.useState<string>(
     "این کتاب، کتابی خودیار است."
   );
+
   const { data, error, isLoading } = useSWR<Data>(
     `${BASE_URL}/api/intro`,
     fetcher
@@ -47,7 +48,10 @@ function Introduction() {
   ];
 
   return (
-    <section id="Introduction" className="py-18 px-6 md:px-12 bg-blue-50">
+    <section
+      id="Introduction"
+      className="py-18 px-6 md:px-12 bg-blue-50 scroll-mt-5"
+    >
       <h2
         className={`${kanit.className} direction-ltr flex justify-center 
         items-center text-4xl sm:text-6xl lg:text-[55px] text-stone-900 mb-3`}
