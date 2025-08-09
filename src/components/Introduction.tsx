@@ -27,6 +27,7 @@ const kanit = Kanit({
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 function Introduction() {
+  const [isShowTranslate, setIsShowTranslate] = React.useState<boolean>(false);
   const { data, error, isLoading } = useSWR<Data>(
     `${BASE_URL}/api/intro`,
     fetcher
@@ -52,7 +53,7 @@ function Introduction() {
       </h2>
       <p
         className="flex justify-center items-center max-w-2xl mx-auto text-stone-500 
-        text-xs"
+        text-xs mb-5"
       >
         توجه: با کلیک روی هر جمله میتوانید ترجمه آنرا ببینید!
       </p>
@@ -63,9 +64,11 @@ function Introduction() {
               <span
                 key={itemIndex}
                 className="text-black text-md"
-                onClick={() => alert(item.translate)}
+                onClick={() =>
+                  setIsShowTranslate((isShowTranslate) => !isShowTranslate)
+                }
               >
-                {item.sentence}
+                {isShowTranslate ? item.translate : item.sentence}
               </span>
             ))}
           </div>
