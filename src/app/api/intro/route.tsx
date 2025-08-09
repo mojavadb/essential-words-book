@@ -30,33 +30,33 @@ export function GET(request: Request) {
     ],
     paragraph_two: [
       {
-        id: 1,
+        id: 5,
         sentence:
           "504 Absolutely Essential Words is divided into 42 lessons, each containing 12 new words.",
         translate:
           "این کتاب به 42 درس تقسیم می شود، هر کدام از این درس ها شامل 12 کلمه جدید هستند.",
       },
       {
-        id: 2,
+        id: 6,
         sentence:
           "Those words are first presented to you in three sample sentences;",
         translate:
           "این کلمات ابتدا در دو یا سه کلمه نمونه به شما ارائه می‌شوند؛",
       },
       {
-        id: 3,
+        id: 7,
         sentence: "next, the new words appear in a brief passage;",
         translate: "سپس، کلمات جدید در یک متن کوتاه ظاهر می‌شوند؛",
       },
       {
-        id: 4,
+        id: 8,
         sentence:
           "the last part of each lesson is a set of exercises that give you practice using the new words.",
         translate:
           "بخش آخر هر درس مجموعه‌ای از تمرین‌ها است که به شما امکان می‌دهد با کلمات جدید تمرین کنید.",
       },
       {
-        id: 5,
+        id: 9,
         sentence:
           "One of the most important features of 504 ... Words is that each of the new words is repeated over and over again throughout this book so that you will have a greater chance to become familiar with it.",
         translate:
@@ -65,7 +65,7 @@ export function GET(request: Request) {
     ],
     paragraph_three: [
       {
-        id: 1,
+        id: 10,
         sentence:
           "Included are seven Word Review sections, each containing challenging exercises that will help you to test your mastery of the new words.",
         translate:
@@ -74,14 +74,14 @@ export function GET(request: Request) {
     ],
     paragraph_four: [
       {
-        id: 1,
+        id: 11,
         sentence:
           "Newly added are interesting exercises in letter writing and parts of speech that will familiarize you with our basic 504 essential words.",
         translate:
           "به تازگی تمرین‌های جالبی در نوشتن نامه و اجزای کلام اضافه شده است که شما را با 504 کلمه اساسی ما آشنا می‌کند.",
       },
       {
-        id: 2,
+        id: 12,
         sentence:
           "Finally, this 6th edition features frequently misspelled words, a Bonus Review, a Bonus Lesson with 125 More Difficult (But Essential) Words, and a new section called Panorama of Words.",
         translate:
