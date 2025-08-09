@@ -71,7 +71,7 @@ function Header() {
           font-bold py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform 
           hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-opacity-50"
         >
-          <span>فهرست</span>
+          <span>وضعیت شما</span>
           <MoveLeft size={20} />
         </a>
       </div>
