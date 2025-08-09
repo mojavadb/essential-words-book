@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" className="scroll-smooth">
       <body
         cz-shortcut-listen="true"
         className={`${vazirmatn.className} antialiased text-base`}
