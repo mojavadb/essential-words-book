@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import useSWR from "swr";
 import { Kanit, Pacifico } from "next/font/google";
 import React from "react";
+import Link from "next/link";
 
 const kanit = Kanit({
   subsets: ["latin"],
@@ -123,19 +124,31 @@ export default function Lesson() {
           <MoveRight size={18} />
         </button>
         <div className="font-bold text-lg">{indexOfWords + 1}</div>
-        <button
-          type="button"
-          className="flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white cursor-pointer 
+        {indexOfWords === 11 ? (
+          <Link
+            href={"/"}
+            className="flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white cursor-pointer 
           font-bold py-2 px-4 rounded-xl text-sm transition-all duration-300 transform 
           hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-opacity-50"
-          onClick={() =>
-            indexOfWords < 11 &&
-            setIndexOfWords((indexOfWords) => indexOfWords + 1)
-          }
-        >
-          <span>بعدی</span>
-          <MoveLeft size={18} />
-        </button>
+          >
+            <span>آزمون</span>
+            <MoveLeft size={18} />
+          </Link>
+        ) : (
+          <button
+            type="button"
+            className="flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white cursor-pointer 
+          font-bold py-2 px-4 rounded-xl text-sm transition-all duration-300 transform 
+          hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-opacity-50"
+            onClick={() =>
+              indexOfWords < 11 &&
+              setIndexOfWords((indexOfWords) => indexOfWords + 1)
+            }
+          >
+            <span>بعدی</span>
+            <MoveLeft size={18} />
+          </button>
+        )}
       </div>
     </main>
   );
