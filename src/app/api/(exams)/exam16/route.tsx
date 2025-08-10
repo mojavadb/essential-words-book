@@ -3,63 +3,68 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
-        answer: "",
+        question:
+          "Little Paul was _______ that he got the Christmas present he asked for.",
+        answer: "grateful",
       },
       {
         id: 2,
-        question: "",
-        answer: "",
+        question: "I _______ that you can break Michael's scoring record.",
+        answer: "doubt",
       },
       {
         id: 3,
-        question: "",
-        answer: "",
+        question: "My mother used to say that I was as _______ as a toothpick.",
+        answer: "slender",
       },
       {
         id: 4,
-        question: "",
-        answer: "",
+        question: "Be _______ about swimming right after eating a meal.",
+        answer: "cautious",
       },
       {
         id: 5,
-        question: "",
-        answer: "",
+        question: "The map he drew of our neighborhood was not very ______",
+        answer: "accurate",
       },
       {
         id: 6,
-        question: "",
-        answer: "",
+        question:
+          "In Superman comics, the only thing Superman couldn't _______ was lead.",
+        answer: "penetrate",
       },
       {
         id: 7,
-        question: "",
-        answer: "",
+        question:
+          "When my family went to look for a new house, we had a _______ choice.",
+        answer: "vast",
       },
       {
         id: 8,
-        question: "",
-        answer: "",
+        question:
+          "Modern highways far _______ the old dirt roads of yesterday.",
+        answer: "surpass",
       },
       {
         id: 9,
-        question: "",
-        answer: "",
+        question: "The jar was filled to ______",
+        answer: "capacity",
       },
       {
         id: 10,
-        question: "",
-        answer: "",
+        question: "We were all very _______ that Duane would pass his exams.",
+        answer: "confident",
       },
       {
         id: 11,
-        question: "",
-        answer: "",
+        question: "The _______ used by my biology teacher is very expensive.",
+        answer: "microscope",
       },
       {
         id: 12,
-        question: "",
-        answer: "",
+        question:
+          "The music was so loud that I thought that it would _______ my eardrums.",
+        answer: "pierce",
       },
     ],
   };
