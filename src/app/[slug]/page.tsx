@@ -42,7 +42,6 @@ export default function Lesson() {
   );
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
-  console.log(data?.words);
 
   return (
     <main>
