@@ -3,63 +3,67 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
-        answer: "",
+        question: "The old man had lived for seven ______",
+        answer: "decades",
       },
       {
         id: 2,
-        question: "",
-        answer: "",
+        question:
+          "He had the ______ that some day there would be peace on earth.",
+        answer: "vision",
       },
       {
         id: 3,
-        question: "",
-        answer: "",
+        question: "Only a ______ of the senators were against welfare.",
+        answer: "minority",
       },
       {
         id: 4,
-        question: "",
-        answer: "",
+        question: "No one has ever had even a ______ of the future.",
+        answer: "glimpse",
       },
       {
         id: 5,
-        question: "",
-        answer: "",
+        question:
+          "People used to think it was an ______ idea that human beings could ever fly.",
+        answer: "absurd",
       },
       {
         id: 6,
-        question: "",
-        answer: "",
+        question: "We make ______ visits to Florida in the winter.",
+        answer: "frequent",
       },
       {
         id: 7,
-        question: "",
-        answer: "",
+        question: "If you have any questions, don't ______ to ask.",
+        answer: "hesitate",
       },
       {
         id: 8,
-        question: "",
-        answer: "",
+        question: "There was only a ______ man on the beach.",
+        answer: "solitary",
       },
       {
         id: 9,
-        question: "",
-        answer: "",
+        question: "The ______ was over the high cost of bread.",
+        answer: "conflict",
       },
       {
         id: 10,
-        question: "",
-        answer: "",
+        question:
+          "______ studies have shown that the cost of living has gone up rapidly.",
+        answer: "Recent",
       },
       {
         id: 11,
-        question: "",
-        answer: "",
+        question: "The gun alone was ______ enough to convict the killer.",
+        answer: "evidence",
       },
       {
         id: 12,
-        question: "",
-        answer: "",
+        question:
+          "The stories Henry told people about his adventures turned out to be merely ______",
+        answer: "fiction",
       },
     ],
   };
