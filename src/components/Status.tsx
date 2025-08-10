@@ -45,7 +45,7 @@ const LessonCard = ({ number }: { number: number }) => {
         className="inline-block text-center bg-sky-600 text-white text-sm px-4 py-2 rounded-lg
         hover:bg-sky-700 transition-colors duration-300"
       >
-        شروع
+        ادامه
       </Link>
     </div>
   );
