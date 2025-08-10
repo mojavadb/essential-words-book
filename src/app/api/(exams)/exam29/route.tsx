@@ -3,63 +3,71 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
-        answer: "",
+        question:
+          "There is a tendency to ______ politicians from keeping campaign promises.",
+        answer: "exempt",
       },
       {
         id: 2,
-        question: "",
-        answer: "",
+        question: "A ______ of such a blunder could be disastrous.",
+        answer: "repetition",
       },
       {
         id: 3,
-        question: "",
-        answer: "",
+        question:
+          "The guide was compelled to admit he had ______ far from the intended route.",
+        answer: "blundered",
       },
       {
         id: 4,
-        question: "",
-        answer: "",
+        question: "A miserly person cannot ______ the joy of sharing.",
+        answer: "comprehend",
       },
       {
         id: 5,
-        question: "",
-        answer: "",
+        question:
+          "Though doctors ______ to cure the undernourished child, he never regained his full health.",
+        answer: "toiled",
       },
       {
         id: 6,
-        question: "",
-        answer: "",
+        question: "Three workers were ______ when the ladder collapsed.",
+        answer: "maimed",
       },
       {
         id: 7,
-        question: "",
-        answer: "",
+        question:
+          "The policeman was ______ for his bravery in capturing the armed outlaw.",
+        answer: "commended",
       },
       {
         id: 8,
-        question: "",
-        answer: "",
+        question:
+          "The perfect attendance of our class illustrated the importance of this ______ exam.",
+        answer: "final",
       },
       {
         id: 9,
-        question: "",
-        answer: "",
+        question:
+          "Friend and foe united in ______ the death of the leader, for she was respected by all.",
+        answer: "mourning",
       },
       {
         id: 10,
-        question: "",
-        answer: "",
+        question:
+          "The drowning man's cries were uttered in ______ , because no one was near to hear them.",
+        answer: "vain",
       },
       {
         id: 11,
-        question: "",
-        answer: "",
+        question: "Miguel's fever ______ after he took the medicine.",
+        answer: "subsided",
       },
       {
         id: 12,
-        question: "",
-        answer: "",
+        question:
+          "My brother was in such a ______ over the tragedy that he could hardly respond to questions. ",
+        answer: "daze",
       },
     ],
   };
