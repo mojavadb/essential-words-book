@@ -16,8 +16,7 @@ function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 px-8 py-4 sm:px-16 bg-neutral-100 text-black flex items-center justify-between relative">
-      {/* Mobile Menu Button */}
+    <nav className="sticky top-0 px-8 py-4 sm:px-16 bg-neutral-100 z-50 text-black flex items-center justify-between relative">
       <div className="md:hidden relative flex items-center">
         <button className="mx-1" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <CircleX /> : <Text />}
@@ -36,13 +35,11 @@ function Nav() {
         )}
       </div>
 
-      {/* Logo */}
       <div>
         <Logo className="w-auto h-auto" />
       </div>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex gap-6 text-sm font-medium">
+      <div className="hidden md:flex gap-6 text-sm font-medium">
         {navigation.map((item) => (
           <Link
             key={item.title}
@@ -52,9 +49,8 @@ function Nav() {
             {item.title}
           </Link>
         ))}
-      </nav>
+      </div>
 
-      {/* Call-to-Action Button */}
       <div className="text-blue-600 text-sm md:rounded-full md:text-white md:bg-blue-800 md:px-4 md:py-1.5 hover:bg-blue-700 transition">
         <Link href="/">شروع</Link>
       </div>
