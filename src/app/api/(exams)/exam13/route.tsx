@@ -3,63 +3,66 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
-        answer: "",
+        question: "The wedding will at eight o'clock.",
+        answer: "commence",
       },
       {
         id: 2,
-        question: "",
-        answer: "",
+        question:
+          "When Abe lost his job, he had to to a place where he could find work.",
+        answer: "migrate",
       },
       {
         id: 3,
-        question: "",
-        answer: "",
+        question: "We could tell Ira was happy by the bright in his eyes.",
+        answer: "gleam",
       },
       {
         id: 4,
-        question: "",
-        answer: "",
+        question: " Because of the , people were dying in the streets.",
+        answer: "famine",
       },
       {
         id: 5,
-        question: "",
-        answer: "",
+        question:
+          "Many people claim to have seen a ghostly sailing through the fog.",
+        answer: "vessel",
       },
       {
         id: 6,
-        question: "",
-        answer: "",
+        question: "Can you the flags of all the states in the United States?",
+        answer: "identify",
       },
       {
         id: 7,
-        question: "",
-        answer: "",
+        question: "He was of all the rules of his religion.",
+        answer: "observant",
       },
       {
         id: 8,
-        question: "",
-        answer: "",
+        question: "The sent five reporters to cover the big story.",
+        answer: "editor",
       },
       {
         id: 9,
-        question: "",
-        answer: "",
+        question: "They were trying to interest in old movies.",
+        answer: "revive",
       },
       {
         id: 10,
-        question: "",
-        answer: "",
+        question:
+          "The travelers were stupid to in eating the food after they were told it was spoiled.",
+        answer: "persist",
       },
       {
         id: 11,
-        question: "",
-        answer: "",
+        question: "weather kept the pilot from seeing the airfield clearly.",
+        answer: "Hazy",
       },
       {
         id: 12,
-        question: "",
-        answer: "",
+        question: "The young applied for his first job at a small newspaper.",
+        answer: "journalist",
       },
     ],
   };
