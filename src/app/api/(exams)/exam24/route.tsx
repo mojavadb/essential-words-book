@@ -3,63 +3,67 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
-        answer: "",
+        question:
+          "I have it on the highest ______ that the lead in the play has been chosen.",
+        answer: "authority",
       },
       {
         id: 2,
-        question: "",
-        answer: "",
+        question: "I am going to ______ my brother to become a lawyer.",
+        answer: "encourage",
       },
       {
         id: 3,
-        question: "",
-        answer: "",
+        question: "Uncle Sam is the well-known ______ of the United States.",
+        answer: "symbol",
       },
       {
         id: 4,
-        question: "",
-        answer: "",
+        question: "We pay $5 a month to keep our house free from ______",
+        answer: "vermin",
       },
       {
         id: 5,
-        question: "",
-        answer: "",
+        question:
+          "When a country is ______ , it does not want to get involved in foreign conflict. ",
+        answer: "neutral",
       },
       {
         id: 6,
-        question: "",
-        answer: "",
+        question: "What type of art work do you ______ to be beautiful?",
+        answer: "consider",
       },
       {
         id: 7,
-        question: "",
-        answer: "",
+        question: "The ______ lion clawed at the visitors to the zoo.",
+        answer: "fierce",
       },
       {
         id: 8,
-        question: "",
-        answer: "",
+        question:
+          "To hear the ______ of a person in sorrow is to hear a dismal sound.",
+        answer: "wail",
       },
       {
         id: 9,
-        question: "",
-        answer: "",
+        question:
+          "Only a ______ of Ivan's fortune was left to his human beneficiaries; most of the money was given to his cats.",
+        answer: "trifle",
       },
       {
         id: 10,
-        question: "",
-        answer: "",
+        question: "I ______ people who are jealous of my success.",
+        answer: "detest",
       },
       {
         id: 11,
-        question: "",
-        answer: "",
+        question: "The unpleasant salesgirl always had a ______ on her face.",
+        answer: "scowl",
       },
       {
         id: 12,
-        question: "",
-        answer: "",
+        question: "My father warned me not to ______ at our poor relatives. ",
+        answer: "sneer",
       },
     ],
   };
