@@ -3,63 +3,72 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
-        answer: "",
+        question:
+          "Many Americans can be considered ______ because they deprive their body of proper foods in favor of rich, fatty foods.",
+        answer: "undernourished",
       },
       {
         id: 2,
-        question: "",
-        answer: "",
+        question:
+          "Though he was threatened with imprisonment, Martin would not ______ the whereabouts of the treasure.",
+        answer: "disclose",
       },
       {
         id: 3,
-        question: "",
-        answer: "",
+        question:
+          "When the report of the airplane ______ reached us, many people pledged their help in locating survivors.",
+        answer: "disaster",
       },
       {
         id: 4,
-        question: "",
-        answer: "",
+        question: "The only hope for the world is to ______ war.",
+        answer: "outlaw",
       },
       {
         id: 5,
-        question: "",
-        answer: "",
+        question:
+          "The police were reluctant to use ______ force, even to preserve order.",
+        answer: "excessive",
       },
       {
         id: 6,
-        question: "",
-        answer: "",
+        question:
+          "This is a court of justice for the ______ and the innocent alike.",
+        answer: "culprit",
       },
       {
         id: 7,
-        question: "",
-        answer: "",
+        question:
+          "Certain foods that ______ tooth decay should be banned from the market.",
+        answer: "promote",
       },
       {
         id: 8,
-        question: "",
-        answer: "",
+        question:
+          "An artist was hired to ______ a book on the birds of this vicinity.",
+        answer: " illustrate",
       },
       {
         id: 9,
-        question: "",
-        answer: "",
+        question: "lf you ______ on shouting, I shall be compelled to leave.",
+        answer: "insist",
       },
       {
         id: 10,
-        question: "",
-        answer: "",
+        question:
+          "It would be a disaster for freedom of the press if the ______ were permitted to tell us what we can read.",
+        answer: "censor",
       },
       {
         id: 11,
-        question: "",
-        answer: "",
+        question:
+          "James has just about exhausted his father's patience with his ______ behavior.",
+        answer: "juvenile",
       },
       {
         id: 12,
-        question: "",
-        answer: "",
+        question: "Only a brutal person would ______ someone who is disabled. ",
+        answer: "bait",
       },
     ],
   };
