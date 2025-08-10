@@ -3,62 +3,67 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
+        question: "The massive tree on the corner was a ______ to traffic.",
         answer: "",
       },
       {
         id: 2,
-        question: "",
+        question: "At parties, the shy girl would ______ being asked to dance.",
         answer: "",
       },
       {
         id: 3,
-        question: "",
+        question:
+          "My uncle has a ______ to repeat the same story over and over again.",
         answer: "",
       },
       {
         id: 4,
-        question: "",
+        question: "The modest man used to ______ his own strength.",
         answer: "",
       },
       {
         id: 5,
-        question: "",
+        question: "No person can ever ______ in all things he does.",
         answer: "",
       },
       {
         id: 6,
-        question: "",
+        question: "Being ______ is far better than being stubborn.",
         answer: "",
       },
       {
         id: 7,
-        question: "",
+        question: "We went to the beach on ______ occasions last summer.",
         answer: "",
       },
       {
         id: 8,
-        question: "",
+        question: "Playing with dolls is traditionally a ______ pastime.",
         answer: "",
       },
       {
         id: 9,
-        question: "",
+        question:
+          "Only the brightest students were invited to ______ for the prize.",
         answer: "",
       },
       {
         id: 10,
-        question: "",
+        question:
+          "Carole was ten years old before her parents finally let her ______ a horse.",
         answer: "",
       },
       {
         id: 11,
-        question: "",
+        question:
+          "The amateur* tennis player completed many matches without being ______",
         answer: "",
       },
       {
         id: 12,
-        question: "",
+        question:
+          "When Stuart started growing a mustache, it was obvious he was becoming more ______",
         answer: "",
       },
     ],
