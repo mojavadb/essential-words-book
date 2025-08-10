@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { CircleX, Text } from "lucide-react";
 import Logo from "./Logo";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navigation = [
   { title: "خانه", href: "/" },
@@ -16,44 +17,65 @@ function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 px-8 py-4 sm:px-16 bg-neutral-100 z-50 text-black flex items-center justify-between relative">
+    <nav className="sticky top-0 px-6 sm:px-16 py-4 bg-neutral-100/90 backdrop-blur-sm shadow-sm z-50 text-black flex items-center justify-between">
+      {/* موبایل */}
       <div className="md:hidden relative flex items-center">
-        <button className="mx-1" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <CircleX /> : <Text />}
+        <button
+          className="p-2 rounded-lg hover:bg-neutral-200 transition-colors duration-200"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <CircleX size={22} /> : <Text size={22} />}
         </button>
-        {menuOpen && (
-          <ul className="absolute top-8 right-2 w-48 bg-white shadow-lg rounded-md z-50">
-            {navigation.map((item) => (
-              <li
-                key={item.title}
-                className="border-b text-sm border-neutral-200 px-4 py-3 hover:bg-neutral-100"
-              >
-                <Link href={item.href}>{item.title}</Link>
-              </li>
-            ))}
-          </ul>
-        )}
+
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.ul
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-10 right-2 w-64 border-1 border-gray bg-white shadow-xl rounded-lg overflow-hidden border border-neutral-200"
+            >
+              {navigation.map((item) => (
+                <li key={item.title}>
+                  <Link
+                    href={item.href}
+                    className="block px-5 py-3 text-sm hover:bg-neutral-100 transition-colors duration-150"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
       </div>
 
-      <div>
+      {/* لوگو */}
+      <div className="flex-shrink-0">
         <Logo className="w-auto h-auto" />
       </div>
 
-      <div className="hidden md:flex gap-6 text-sm font-medium">
+      {/* دسکتاپ */}
+      <div className="hidden md:flex gap-8 text-sm font-medium">
         {navigation.map((item) => (
           <Link
             key={item.title}
             href={item.href}
-            className="hover:text-blue-600"
+            className="relative hover:text-blue-600 transition-colors duration-200 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-600 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
           >
             {item.title}
           </Link>
         ))}
       </div>
 
-      <div className="text-blue-600 text-sm md:rounded-full md:text-white md:bg-blue-800 md:px-4 md:py-1.5 hover:bg-blue-700 transition">
-        <Link href="/">شروع</Link>
-      </div>
+      {/* دکمه شروع */}
+      <Link
+        href="/1"
+        className="text-blue-600 text-sm md:rounded-full md:text-white md:bg-blue-800 md:px-5 md:py-2 hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
+      >
+        شروع
+      </Link>
     </nav>
   );
 }
