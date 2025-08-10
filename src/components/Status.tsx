@@ -1,11 +1,7 @@
 import Link from "next/link";
 import Progress from "./Progress";
 
-const TOTAL_LESSONS = 42;
-
 function Status() {
-  const numbers = Array.from({ length: TOTAL_LESSONS }, (_, i) => i + 1);
-
   return (
     <section
       id="status"
