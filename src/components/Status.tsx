@@ -5,30 +5,22 @@ function Status() {
   return (
     <section
       id="status"
-      className="py-18 mx-auto text-center w-11/12 flex flex-col justify-center items-center gap-4"
+      className="py-18 mx-auto w-11/12 flex flex-col justify-center items-center gap-6"
     >
-      <h1 className="flex justify-center items-center text-2xl sm:text-4xl lg:text-[40px] text-stone-900">
+      <h1 className="mb-4 text-2xl sm:text-4xl lg:text-[40px] font-bold text-stone-900">
         وضعیت شما
       </h1>
 
-      <h3 className="flex justify-center items-center mb-8 text-md md:text-lg text-stone-900">
-        تا کجا پیش رفته اید؟
-      </h3>
-
-      <div
-        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 w-full gap-4
-        gap-8 overflow-hidden transition-all duration-300"
-      >
-        <LessonCard number={1} />{" "}
-        {/* 1 === local storage memory that saves current status */}
-      </div>
-
-      <div className="p-8 max-w-xl mx-auto">
-        <Progress completed={37} total={120} />
-
-        <div className="mt-6">
-          <Progress completed={75} total={100} height={36} className="w-5" />
+      <div className="grid md:grid-cols-2 gap-8 w-full">
+        <div
+          className="flex items-center justify-center bg-white p-4 rounded-lg
+        hover:shadow-md hover:-translate-y-1 active:shadow-md active:-translate-y-1
+      transition-all duration-300 shadow-sm border border-gray-100"
+        >
+          <Progress completed={0} total={42} height={25} showLabel />
         </div>
+
+        <LessonCard number={1} />
       </div>
     </section>
   );
@@ -37,18 +29,21 @@ function Status() {
 const LessonCard = ({ number }: { number: number }) => {
   return (
     <div
-      className="p-4 rounded-md border-b-3 border-stone-200 bg-white
-      cursor-pointer hover:shadow-sm hover:-translate-y-1
-      active:shadow-sm active:-translate-y-1 transition-all duration-300"
+      className="p-5 rounded-lg border border-gray-200 bg-white shadow-sm
+      hover:shadow-md hover:-translate-y-1 active:shadow-md active:-translate-y-1
+      transition-all duration-300 flex flex-col justify-between"
     >
-      <p className="mb-1 text-sm">درس {number}</p>
-      <p className="mb-2 text-xs">
-        <span className="text-neutral-700">وضعیت:</span>
-        <span className="text-red-500 mr-1"> شروع نشده</span>
-      </p>
+      <div>
+        <p className="mb-1 text-base font-semibold">درس {number}</p>
+        <p className="mb-3 text-sm">
+          <span className="text-neutral-700 font-medium">وضعیت:</span>
+          <span className="text-red-500 mr-1">شروع نشده</span>
+        </p>
+      </div>
       <Link
         href={`/${number}`}
-        className="text-sky-600 text-xs hover:text-sky-600"
+        className="inline-block text-center bg-sky-600 text-white text-sm px-4 py-2 rounded-lg
+        hover:bg-sky-700 transition-colors duration-300"
       >
         شروع
       </Link>

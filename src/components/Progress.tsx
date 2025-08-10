@@ -44,9 +44,11 @@ export default function Progress({
       {/* برچسب بالایی (اختیاری) */}
       {showLabel && (
         <div className="flex items-center justify-between mb-2 select-none">
-          <div className="text-sm text-gray-600">پیشرفت</div>
-          <div className="text-sm font-medium text-gray-800">
-            {displayPercent}%{" "}
+          <div className="text-sm font-medium text-gray-700 mb-2">
+            {displayPercent}%
+            <span className="mr-1 ml-3">
+              {"از درس های این کتاب را تمام کرده اید."}
+            </span>
             <span className="text-xs text-gray-500">({labelDetail})</span>
           </div>
         </div>
