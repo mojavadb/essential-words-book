@@ -11,7 +11,7 @@ const kanit = Kanit({
 function Header() {
   return (
     <header
-      className="py-18 max-w-3xl mx-auto text-center w-11/12 flex flex-col 
+      className="py-12 max-w-3xl mx-auto text-center w-11/12 flex flex-col 
       justify-center items-center gap-4"
     >
       <div className="">
