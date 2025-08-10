@@ -1,29 +1,10 @@
-"use client";
-
-import React, { useEffect } from "react";
 import Link from "next/link";
-import { ArrowDown, ArrowUp } from "lucide-react";
 import Progress from "./Progress";
 
 const TOTAL_LESSONS = 42;
 
 function Status() {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const [isExpanded, setIsExpanded] = React.useState<boolean>(false);
-
   const numbers = Array.from({ length: TOTAL_LESSONS }, (_, i) => i + 1);
-
-  const handleExpand = () => {
-    setIsExpanded((isExpanded) => !isExpanded);
-  };
-
-  useEffect(() => {
-    if (isExpanded) {
-      containerRef.current?.style.setProperty("max-height", "none");
-    } else {
-      containerRef.current?.style.setProperty("max-height", "385px");
-    }
-  }, [isExpanded]);
 
   return (
     <section
@@ -39,22 +20,12 @@ function Status() {
       </h3>
 
       <div
-        ref={containerRef}
         className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 w-full gap-4
         gap-8 overflow-hidden transition-all duration-300"
       >
-        {numbers.map((numb) => (
-          <LessonCard key={numb} number={numb} />
-        ))}
+        <LessonCard number={1} />{" "}
+        {/* 1 === local storage memory that saves current status */}
       </div>
-
-      <button
-        onClick={handleExpand}
-        className="mt-5 p-2 cursor-pointer flex items-center gap-2 border-2 border-gray-600
-        text-gray-800 rounded-full hover:bg-gray-200 transition-colors duration-300"
-      >
-        {isExpanded ? <ArrowUp size={20} /> : <ArrowDown size={20} />}
-      </button>
 
       <div className="p-8 max-w-xl mx-auto">
         <Progress completed={37} total={120} />
@@ -80,7 +51,7 @@ const LessonCard = ({ number }: { number: number }) => {
         <span className="text-red-500 mr-1"> شروع نشده</span>
       </p>
       <Link
-        href={`/lesson/${number}`}
+        href={`/${number}`}
         className="text-sky-600 text-xs hover:text-sky-600"
       >
         شروع
