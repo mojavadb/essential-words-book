@@ -3,63 +3,72 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
-        answer: "",
+        question: "Intemperate eating habits can lead to ______",
+        answer: "depart",
       },
       {
         id: 2,
-        question: "",
-        answer: "",
+        question:
+          "To avoid an ______ , the Surgeon-General ordered a thorough study of the situation.",
+        answer: "cancelled",
       },
       {
         id: 3,
-        question: "",
-        answer: "",
+        question:
+          "At a recent meeting of ______ , a new treatment for arthritis was discussed.",
+        answer: "placard",
       },
       {
         id: 4,
-        question: "",
-        answer: "",
+        question: "The humid air in this room must be ______",
+        answer: "contagious",
       },
       {
         id: 5,
-        question: "",
-        answer: "",
+        question:
+          "One thousand angry voters loudly signified an ______ objection to the motion.",
+        answer: "unearthed",
       },
       {
         id: 6,
-        question: "",
-        answer: "",
+        question:
+          "The frightened man tormented himself by ______ every unpleasant experience into a calamity.",
+        answer: "customary",
       },
       {
         id: 7,
-        question: "",
-        answer: "",
+        question:
+          "If used as a precedent, this verdict will prove to be an ______ to justice.",
+        answer: "scalded",
       },
       {
         id: 8,
-        question: "",
-        answer: "",
+        question:
+          "Without the ______ he had confidently expected, Mr. Halcroft faced hardships in his retirement.",
+        answer: "transparent",
       },
       {
         id: 9,
-        question: "",
-        answer: "",
+        question:
+          "The sale of the vacant lot for construction of an office building will ______ the residential character of the neighborhood.",
+        answer: "legible",
       },
       {
         id: 10,
-        question: "",
-        answer: "",
+        question: "Preserve the ______ in case we need more prints.",
+        answer: "clergy",
       },
       {
         id: 11,
-        question: "",
-        answer: "",
+        question:
+          "We should all attend the meeting at the ______ center, for the issues are of vital concern to every citizen.",
+        answer: "debtor",
       },
       {
         id: 12,
-        question: "",
-        answer: "",
+        question:
+          "The heart and the brain are considered the most ______ organs in the human body.",
+        answer: "coincide",
       },
     ],
   };
