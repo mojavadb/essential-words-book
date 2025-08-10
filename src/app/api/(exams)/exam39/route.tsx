@@ -3,63 +3,73 @@ export function GET(request: Request) {
     exam: [
       {
         id: 1,
-        question: "",
-        answer: "",
+        question:
+          "After several hours, Raoul abandoned his search to ______ for home.",
+        answer: "depart",
       },
       {
         id: 2,
-        question: "",
-        answer: "",
+        question:
+          "The police department ______ all leaves until the dangerous lunatic was captured.",
+        answer: "cancelled",
       },
       {
         id: 3,
-        question: "",
-        answer: "",
+        question: "The ______ helped to advertise the circus.",
+        answer: "placard",
       },
       {
         id: 4,
-        question: "",
-        answer: "",
+        question:
+          "Since the disease is ______ so , it is essential to identify the carrier.",
+        answer: "contagious",
       },
       {
         id: 5,
-        question: "",
-        answer: "",
+        question:
+          "It was fortunate that the journalist had ______ the sinister plan to assassinate the president.",
+        answer: "unearthed",
       },
       {
         id: 6,
-        question: "",
-        answer: "",
+        question:
+          "It was ______ for the victorious general to ride at the head of a parade.",
+        answer: "customary",
       },
       {
         id: 7,
-        question: "",
-        answer: "",
+        question:
+          "When she slipped in the shower, Myra was ______ by the hot water.",
+        answer: "scalded",
       },
       {
         id: 8,
-        question: "",
-        answer: "",
+        question: "Through the ______ curtain, the entire scene was visible.",
+        answer: "transparent",
       },
       {
         id: 9,
-        question: "",
-        answer: "",
+        question:
+          "Only a portion of the scrolls found in the cave were ______ , but their value should not be underestimated.",
+        answer: "legible",
       },
       {
         id: 10,
-        question: "",
-        answer: "",
+        question:
+          "The duties of the ______ are not confined to religious matters.",
+        answer: "clergy",
       },
       {
         id: 11,
-        question: "",
-        answer: "",
+        question:
+          "The was brought to court for having deceived the ______ bank with a false statement of his finances.",
+        answer: "debtor",
       },
       {
         id: 12,
-        question: "",
-        answer: "",
+        question:
+          "Since their interests do not ______ there is still a lingering doubt in my mind if they should enter into matrimony.",
+        answer: "coincide",
       },
     ],
   };
