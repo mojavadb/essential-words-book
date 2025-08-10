@@ -68,7 +68,6 @@ function Introduction() {
       id="Introduction"
       className="py-18 px-6 md:px-12 bg-blue-100 scroll-mt-5"
     >
-      {/* عنوان */}
       <h2
         className={`${kanit.className} direction-ltr text-center text-4xl sm:text-6xl lg:text-[55px] text-stone-900 mb-3`}
       >
@@ -79,7 +78,6 @@ function Introduction() {
       </p>
 
       <div className="grid gap-6 md:gap-12 lg:grid-cols-4">
-        {/* کارت ترجمه */}
         <div className="lg:col-span-1">
           <div className="max-w-sm rounded-xl overflow-hidden shadow-lg border border-gray-100 bg-white transition-all duration-300">
             <div className="flex items-center justify-between border-b border-gray-300 py-2 px-4 bg-gray-50">
@@ -110,7 +108,6 @@ function Introduction() {
           </div>
         </div>
 
-        {/* جملات */}
         <div className="lg:col-span-3">
           <div className="grid lg:grid-cols-2 gap-4 direction-ltr">
             {paragraphs?.map((paragraph, parIndex) => (

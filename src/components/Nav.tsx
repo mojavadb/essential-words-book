@@ -18,7 +18,6 @@ function Nav() {
 
   return (
     <nav className="sticky top-0 px-6 sm:px-16 py-4 bg-neutral-100/90 backdrop-blur-sm shadow-sm z-50 text-black flex items-center justify-between">
-      {/* موبایل */}
       <div className="md:hidden relative flex items-center">
         <button
           className="p-2 rounded-lg hover:bg-neutral-200 transition-colors duration-200"
@@ -51,12 +50,10 @@ function Nav() {
         </AnimatePresence>
       </div>
 
-      {/* لوگو */}
       <div className="flex-shrink-0">
         <Logo className="w-auto h-auto" />
       </div>
 
-      {/* دسکتاپ */}
       <div className="hidden md:flex gap-8 text-sm font-medium">
         {navigation.map((item) => (
           <Link
@@ -69,7 +66,6 @@ function Nav() {
         ))}
       </div>
 
-      {/* دکمه شروع */}
       <Link
         href="/1"
         className="text-blue-600 text-sm md:rounded-full md:text-white md:bg-blue-800 md:px-5 md:py-2 hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"

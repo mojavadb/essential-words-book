@@ -57,10 +57,8 @@ function Status() {
       </button>
 
       <div className="p-8 max-w-xl mx-auto">
-        {/* مثال ساده: 37 از 120 */}
         <Progress completed={37} total={120} />
 
-        {/* مثال با ارتفاع بزرگتر و بدون برچسب */}
         <div className="mt-6">
           <Progress completed={75} total={100} height={36} className="w-5" />
         </div>

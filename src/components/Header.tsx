@@ -14,7 +14,6 @@ const kanit = Kanit({
 function Header() {
   return (
     <header className="py-12 max-w-3xl mx-auto text-center w-11/12 flex flex-col justify-center items-center gap-6">
-      {/* تصویر کتاب */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -29,7 +28,6 @@ function Header() {
         />
       </motion.div>
 
-      {/* عنوان اصلی */}
       <motion.h1
         initial={{ y: -15, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -39,7 +37,6 @@ function Header() {
         504 absolutely essential words
       </motion.h1>
 
-      {/* زیرعنوان فارسی */}
       <motion.h3
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -49,7 +46,6 @@ function Header() {
         ۵۰۴ واژه ضروری انگلیسی
       </motion.h3>
 
-      {/* متن معرفی */}
       <motion.p
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -80,7 +76,6 @@ function Header() {
         </motion.span>
       </motion.p>
 
-      {/* دکمه‌ها */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
