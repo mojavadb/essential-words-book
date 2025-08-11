@@ -139,7 +139,7 @@ export default function Lesson() {
 
         {indexOfWords === 11 ? (
           <Link
-            href="/"
+            href={`${slug}/exam`}
             className="flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-lg text-sm transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-green-700 focus:ring-opacity-50"
           >
             <span>آزمون</span>
