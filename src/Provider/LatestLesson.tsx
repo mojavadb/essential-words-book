@@ -11,12 +11,12 @@ const lastLessonContext = React.createContext<LastLessonContextType | null>(
 );
 
 function LastLessonProvider({ children }: { children: React.ReactNode }) {
-  const [lastLesson, setLastLesson] = React.useState<string>("1");
-
-  React.useEffect(() => {
-    const saved = localStorage.getItem("lastLesson");
-    if (saved) setLastLesson(saved);
-  }, []);
+  const [lastLesson, setLastLesson] = React.useState<string>(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("lastLesson") || "0";
+    }
+    return "0";
+  });
 
   React.useEffect(() => {
     localStorage.setItem("lastLesson", lastLesson);

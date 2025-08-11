@@ -1,7 +1,12 @@
+"use client";
 import Link from "next/link";
 import Progress from "./Progress";
+import { useLastLesson } from "@/Provider/LatestLesson";
 
 function Status() {
+  const { lastLesson } = useLastLesson();
+  console.log(lastLesson);
+
   return (
     <section
       id="status"
@@ -17,10 +22,15 @@ function Status() {
         hover:shadow-md hover:-translate-y-1 active:shadow-md active:-translate-y-1
       transition-all duration-300 shadow-sm border border-gray-100"
         >
-          <Progress completed={0} total={42} height={25} showLabel />
+          <Progress
+            completed={parseInt(lastLesson)}
+            total={42}
+            height={25}
+            showLabel
+          />
         </div>
 
-        <LessonCard number={1} />
+        <LessonCard number={parseInt(lastLesson) + 1} />
       </div>
     </section>
   );
