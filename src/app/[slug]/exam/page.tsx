@@ -1,154 +1,210 @@
 "use client";
-import { Languages, MoveLeft, MoveRight, Volume2 } from "lucide-react";
 import { useParams } from "next/navigation";
 import useSWR from "swr";
-import { Kanit, Pacifico } from "next/font/google";
+import { Kanit } from "next/font/google";
 import React from "react";
-import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Eye, EyeOff } from "lucide-react";
 
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "900"],
 });
-const pacifico = Pacifico({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 const BASE_URL = "http://localhost:3000";
 
-type Word = {
+type Question = {
   id: number;
-  pronunciation: string;
-  imageUrl: string;
-  wordPr: string;
-  definitionPr: string;
-  word: string;
-  definition: string;
-  synonymsPr: string[];
-  synonyms: string[];
-  examplesPr: string[];
-  examples: string[];
+  question: string;
+  answer: string;
 };
 type Data = {
-  words: Word[];
+  exam: Question[];
 };
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
+function randomArray(array: string[] = []) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function AnswersPanel({
+  randomAnswers,
+  isShowingAnswer,
+  toggleShowAnswer,
+}: {
+  randomAnswers: string[];
+  isShowingAnswer: boolean;
+  toggleShowAnswer: () => void;
+}) {
+  return (
+    <div
+      className="w-full text-center shadow-lg p-5 mb-2 mx-auto
+      w-full max-w-2xl bg-white rounded-2xl flex items-center justify-start 
+      flex-col text-sm text-gray-800 gap-5"
+    >
+      <div className="flex items-center justify-between border-b border-gray-300 bg-gray-50 w-full">
+        <h3 className="text-sm font-bold text-gray-800">
+          اگر املای لغات را نمیدانید:
+        </h3>
+        <button
+          className="p-2 hover:bg-gray-200 rounded-full transition-colors cursor-pointer"
+          onClick={toggleShowAnswer}
+        >
+          {isShowingAnswer ? (
+            <Eye size={18} color="#464" />
+          ) : (
+            <EyeOff size={18} color="#644" />
+          )}
+        </button>
+      </div>
+      <div
+        className={`flex direction-ltr gap-3 items-center justify-start flex-wrap
+        ${isShowingAnswer ? "text-gray-200" : "text-gray-800"}`}
+      >
+        {randomAnswers.map((answer, index) => (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            key={index}
+          >
+            <div className="p-2 bg-gray-200 rounded-lg">{answer}</div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function QuestionCard({
+  question,
+  indexOfQuestion,
+  totalQuestions,
+  score,
+  clientAnswer,
+  setClientAnswer,
+  handleChecking,
+}: {
+  question: Question;
+  indexOfQuestion: number;
+  totalQuestions: number;
+  score: number;
+  clientAnswer: string;
+  setClientAnswer: React.Dispatch<React.SetStateAction<string>>;
+  handleChecking: () => void;
+}) {
+  return (
+    <motion.div
+      key={question.id}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+      className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6"
+    >
+      <div className="mb-4 text-2xl font-semibold text-gray-700 flex flex-col md:flex-row items-center justify-between">
+        <p>- Fill in the blank:</p>
+        <p>
+          Score: {score} / {totalQuestions}
+        </p>
+      </div>
+      <div className="bg-gradient-to-b from-blue-200 to-blue-100 text-lg rounded-xl shadow-inner min-h-[150px] flex items-center justify-center p-6 mb-4 text-gray-800 leading-8">
+        <div>
+          {indexOfQuestion + 1}- {question.question}
+        </div>
+      </div>
+      <input
+        type="text"
+        placeholder="answer here..."
+        value={clientAnswer}
+        onChange={(e) => setClientAnswer(e.target.value)}
+        className="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+      />
+      <button
+        disabled={clientAnswer === ""}
+        type="button"
+        className="flex items-center gap-2 bg-red-600 disabled:bg-red-300 
+                    hover:bg-red-700 text-white font-bold py-2 px-5 rounded-xl text-sm transition 
+                    transform hover:scale-105 cursor-pointer disabled:cursor-default"
+        onClick={handleChecking}
+      >
+        check
+      </button>
+    </motion.div>
+  );
+}
+
 export default function Lesson() {
-  const [indexOfWords, setIndexOfWords] = React.useState<number>(0);
+  const [indexOfQuestion, setIndexOfQuestion] = React.useState<number>(0);
+  const [score, setScore] = React.useState<number>(0);
+  const [clientAnswer, setClientAnswer] = React.useState<string>("");
+  const [isShowingAnswer, setIsShowingAnswer] = React.useState<boolean>(true);
+
   const params = useParams();
   const { data, error, isLoading } = useSWR<Data>(
-    `${BASE_URL}/api/lsn${params.slug}`,
+    `${BASE_URL}/api/exam${params.slug}`,
     fetcher
   );
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
-  console.log(params);
+
+  const randomAnswers = React.useMemo(() => {
+    const answers = data?.exam?.map((item) => item.answer) ?? [];
+    return randomArray(answers);
+  }, [data]);
+
+  function handleChecking() {
+    if (clientAnswer === "") return;
+    if (clientAnswer === data?.exam[indexOfQuestion].answer) {
+      setScore((score) => score + 1);
+    }
+    setIndexOfQuestion((prev) => prev + 1);
+    setClientAnswer("");
+  }
+
+  if (error)
+    return (
+      <div className="text-red-600 text-center mt-10">
+        خطا در بارگذاری داده‌ها
+      </div>
+    );
+  if (isLoading)
+    return (
+      <div className="text-gray-500 text-center mt-10">در حال بارگذاری...</div>
+    );
+
   return (
-    <main>
-      {data?.words.map(
-        (word, index) =>
-          index === indexOfWords && (
-            <div
-              className="p-4 grid gap-6 md:grid-cols-2 md:gap-16 md:p-12"
-              key={index}
-            >
-              <div className="p-3 bg-white mb-3">
-                <div
-                  className={`w-60 h-56 mx-auto border border-gray-300 rounded-sm mb-8
-                bg-gray-900 text-white text-5xl font-bold ${pacifico.className}
-                flex items-center justify-center`}
-                >
-                  <div className="mb-3 border-b-1 border-gray-500 px-2">
-                    {word.word}
-                  </div>
-                </div>
-                <div className="direction-ltr relative mb-2">
-                  <p
-                    className={`${kanit.className} text-sm text-gray-500 mb-2`}
-                  >
-                    English
-                  </p>
-                  <p className={`text-2xl font-bold mb-1 ${kanit.className}`}>
-                    {word.word}
-                  </p>
-                  <p className={`text-sm text-gray-500 ${kanit.className}`}>
-                    {word.pronunciation}
-                  </p>
-                  <Volume2 size={20} className="absolute top-0 right-12" />
-                  <a
-                    href={`https://translate.google.com/?hl=fa&sl=en&tl=fa&text=${word.word}&op=translate`}
-                    target="_blank"
-                    className="absolute top-0 right-2 text-sm flex items-center gap-2"
-                  >
-                    <Languages size={20} />
-                  </a>
-                </div>
-                <div className="mb-8">
-                  <p className="text-xs text-gray-500 mb-2">فارسی</p>
-                  <p className="text-xl font-bold mb-1">{word.wordPr}</p>
-                </div>
-                <div className={`direction-ltr ${kanit.className} mb-6`}>
-                  <p className="text-base">{word.definition}</p>
-                </div>
-                <p className="text-base">{word.definitionPr}</p>
-              </div>
-              <div>
-                {[0, 1, 2].map((i) => (
-                  <div key={i} className="p-5 bg-blue-100 mb-4">
-                    <p className={`${kanit.className} direction-ltr mb-4`}>
-                      {i + 1}- {word.examples[i]}
-                    </p>
-                    <p>{word.examplesPr[i]}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )
-      )}
+    <main
+      className={`min-h-screen bg-gray-100 p-6 flex flex-col justify-between`}
+    >
+      <AnswersPanel
+        randomAnswers={randomAnswers}
+        isShowingAnswer={isShowingAnswer}
+        toggleShowAnswer={() => setIsShowingAnswer((s) => !s)}
+      />
       <div
-        className="flex items-center justify-between gap-12 px-8 mb-6 md:px-12
-      md:mb-9 md:gap-0 md:justify-around"
+        className={`flex-1 flex items-center justify-center direction-ltr ${kanit.className}`}
       >
-        <button
-          type="button"
-          className="flex items-center gap-2 bg-red-800 hover:bg-red-900 text-white cursor-pointer
-          font-bold py-2 px-4 rounded-lg text-sm transition-all duration-300 transform 
-          hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50"
-          onClick={() =>
-            indexOfWords > 0 &&
-            setIndexOfWords((indexOfWords) => indexOfWords - 1)
-          }
-        >
-          <span>قبلی</span>
-          <MoveRight size={18} />
-        </button>
-        <div className="font-bold text-lg">{indexOfWords + 1}</div>
-        {indexOfWords === 11 ? (
-          <Link
-            href={"/"}
-            className="flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white cursor-pointer 
-          font-bold py-2 px-4 rounded-xl text-sm transition-all duration-300 transform 
-          hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-opacity-50"
-          >
-            <span>آزمون</span>
-            <MoveLeft size={18} />
-          </Link>
-        ) : (
-          <button
-            type="button"
-            className="flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white cursor-pointer 
-          font-bold py-2 px-4 rounded-xl text-sm transition-all duration-300 transform 
-          hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-opacity-50"
-            onClick={() =>
-              indexOfWords < 11 &&
-              setIndexOfWords((indexOfWords) => indexOfWords + 1)
-            }
-          >
-            <span>بعدی</span>
-            <MoveLeft size={18} />
-          </button>
-        )}
+        <AnimatePresence mode="wait">
+          {data?.exam.map(
+            (question, index) =>
+              index === indexOfQuestion && (
+                <QuestionCard
+                  key={question.id}
+                  question={question}
+                  indexOfQuestion={indexOfQuestion}
+                  totalQuestions={data.exam.length}
+                  score={score}
+                  clientAnswer={clientAnswer}
+                  setClientAnswer={setClientAnswer}
+                  handleChecking={handleChecking}
+                />
+              )
+          )}
+        </AnimatePresence>
       </div>
     </main>
   );
