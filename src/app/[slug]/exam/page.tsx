@@ -1,4 +1,5 @@
 "use client";
+
 import { useParams } from "next/navigation";
 import useSWR from "swr";
 import { Kanit } from "next/font/google";
@@ -6,6 +7,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, EyeOff, MoveLeft } from "lucide-react";
 import Link from "next/link";
+import { useLastLesson } from "@/Provider/LatestLesson";
 
 const kanit = Kanit({
   subsets: ["latin"],
@@ -103,6 +105,7 @@ function QuestionCard({
   setIsShowingResult: React.Dispatch<React.SetStateAction<boolean>>;
   isShowingResult: boolean;
 }) {
+  const { setLastLesson } = useLastLesson();
   return (
     <motion.div
       key={question.id}
@@ -124,7 +127,11 @@ function QuestionCard({
             {score >= (totalQuestions * 2) / 3 ? (
               <>
                 <p className="text-green-800">accept</p>
-                <Link className="text-green-800" href={`/`}>
+                <Link
+                  className="text-green-800"
+                  href={`/`}
+                  onClick={() => setLastLesson((l) => l + 1)}
+                >
                   home
                 </Link>
               </>
