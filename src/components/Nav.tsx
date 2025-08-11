@@ -8,9 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navigation = [
   { title: "خانه", href: "/" },
-  { title: "محصولات", href: "/products" },
-  { title: "درباره ما", href: "/about" },
-  { title: "تماس با ما", href: "/contact" },
+  { title: "دروس کتاب", href: "/lists" },
+  { title: "مشارکت", href: "/participation" },
 ];
 
 function Nav() {
