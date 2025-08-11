@@ -4,7 +4,8 @@ import useSWR from "swr";
 import { Kanit } from "next/font/google";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, MoveLeft } from "lucide-react";
+import Link from "next/link";
 
 const kanit = Kanit({
   subsets: ["latin"],
@@ -89,6 +90,8 @@ function QuestionCard({
   clientAnswer,
   setClientAnswer,
   handleChecking,
+  setIsShowingResult,
+  isShowingResult,
 }: {
   question: Question;
   indexOfQuestion: number;
@@ -97,6 +100,8 @@ function QuestionCard({
   clientAnswer: string;
   setClientAnswer: React.Dispatch<React.SetStateAction<string>>;
   handleChecking: () => void;
+  setIsShowingResult: React.Dispatch<React.SetStateAction<boolean>>;
+  isShowingResult: boolean;
 }) {
   return (
     <motion.div
@@ -107,34 +112,82 @@ function QuestionCard({
       transition={{ duration: 0.3 }}
       className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6"
     >
-      <div className="mb-4 text-2xl font-semibold text-gray-700 flex flex-col md:flex-row items-center justify-between">
-        <p>- Fill in the blank:</p>
-        <p>
-          Score: {score} / {totalQuestions}
-        </p>
-      </div>
-      <div className="bg-gradient-to-b from-blue-200 to-blue-100 text-lg rounded-xl shadow-inner min-h-[150px] flex items-center justify-center p-6 mb-4 text-gray-800 leading-8">
+      {isShowingResult ? (
         <div>
-          {indexOfQuestion + 1}- {question.question}
+          <div className="mb-4 text-2xl font-semibold text-gray-700 flex flex-col md:flex-row items-center justify-between">
+            <p>Result:</p>
+            <p>
+              {score} / {totalQuestions}
+            </p>
+          </div>
+          <div className="mb-4 text-2xl font-semibold text-gray-700 flex flex-col md:flex-row items-center justify-between">
+            {score >= (totalQuestions * 2) / 3 ? (
+              <>
+                <p className="text-green-800">accept</p>
+                <Link className="text-green-800" href={`/`}>
+                  home
+                </Link>
+              </>
+            ) : (
+              <>
+                <p className="text-red-800">unaccept</p>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="text-red-800 cursor-pointer"
+                >
+                  try again
+                </button>
+              </>
+            )}
+          </div>
         </div>
-      </div>
-      <input
-        type="text"
-        placeholder="answer here..."
-        value={clientAnswer}
-        onChange={(e) => setClientAnswer(e.target.value)}
-        className="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
-      />
-      <button
-        disabled={clientAnswer === ""}
-        type="button"
-        className="flex items-center gap-2 bg-red-600 disabled:bg-red-300 
-                    hover:bg-red-700 text-white font-bold py-2 px-5 rounded-xl text-sm transition 
-                    transform hover:scale-105 cursor-pointer disabled:cursor-default"
-        onClick={handleChecking}
-      >
-        check
-      </button>
+      ) : (
+        <div>
+          <div className="mb-4 text-2xl font-semibold text-gray-700 flex flex-col md:flex-row items-center justify-between">
+            <p>- Fill in the blank:</p>
+            <p>
+              Score: {score} / {totalQuestions}
+            </p>
+          </div>
+          <div className="bg-gradient-to-b from-blue-200 to-blue-100 text-lg rounded-xl shadow-inner min-h-[150px] flex items-center justify-center p-6 mb-4 text-gray-800 leading-8">
+            <div>
+              {indexOfQuestion + 1}- {question.question}
+            </div>
+          </div>
+          <input
+            type="text"
+            placeholder="answer here..."
+            value={clientAnswer}
+            onChange={(e) => setClientAnswer(e.target.value)}
+            className="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+          />
+          {indexOfQuestion === 11 ? (
+            <button
+              disabled={clientAnswer === ""}
+              type="button"
+              className="flex items-center gap-2 bg-red-600 disabled:bg-red-300 
+                      hover:bg-red-700 text-white font-bold py-2 px-5 rounded-xl text-sm transition 
+                      transform hover:scale-105 cursor-pointer disabled:cursor-default"
+              onClick={() => setIsShowingResult((r) => !r)}
+            >
+              <MoveLeft size={18} />
+              <span>result</span>
+            </button>
+          ) : (
+            <button
+              disabled={clientAnswer === ""}
+              type="button"
+              className="flex items-center gap-2 bg-red-600 disabled:bg-red-300 
+                      hover:bg-red-700 text-white font-bold py-2 px-5 rounded-xl text-sm transition 
+                      transform hover:scale-105 cursor-pointer disabled:cursor-default"
+              onClick={handleChecking}
+            >
+              <MoveLeft size={18} />
+              <span>Next</span>
+            </button>
+          )}
+        </div>
+      )}
     </motion.div>
   );
 }
@@ -144,6 +197,7 @@ export default function Lesson() {
   const [score, setScore] = React.useState<number>(0);
   const [clientAnswer, setClientAnswer] = React.useState<string>("");
   const [isShowingAnswer, setIsShowingAnswer] = React.useState<boolean>(true);
+  const [isShowingResult, setIsShowingResult] = React.useState<boolean>(false);
 
   const params = useParams();
   const { data, error, isLoading } = useSWR<Data>(
@@ -201,6 +255,8 @@ export default function Lesson() {
                   clientAnswer={clientAnswer}
                   setClientAnswer={setClientAnswer}
                   handleChecking={handleChecking}
+                  setIsShowingResult={setIsShowingResult}
+                  isShowingResult={isShowingResult}
                 />
               )
           )}
