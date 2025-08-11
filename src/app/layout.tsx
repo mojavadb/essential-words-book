@@ -3,6 +3,7 @@ import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LastLessonProvider } from "@/Provider/LatestLesson";
 
 const vazirmatn = Vazirmatn({
   subsets: ["latin", "arabic"],
@@ -25,9 +26,11 @@ export default function RootLayout({
         cz-shortcut-listen="true"
         className={`${vazirmatn.className} antialiased text-base`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <LastLessonProvider>
+          <Header />
+          {children}
+          <Footer />
+        </LastLessonProvider>
       </body>
     </html>
   );
