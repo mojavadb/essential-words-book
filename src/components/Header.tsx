@@ -24,7 +24,7 @@ function Header() {
           alt="504 essential words"
           width={160}
           height={160}
-          className="rounded-xl shadow-lg"
+          className="rounded-xl shadow-2xl"
         />
       </motion.div>
 
