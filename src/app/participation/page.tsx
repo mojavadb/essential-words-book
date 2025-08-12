@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Link from "next/link";
+import { Metadata } from "next";
 
 interface SectionProps {
   title: string;
@@ -16,6 +17,11 @@ interface InfoItemProps {
   label: string;
   href: string;
 }
+
+export const metadata: Metadata = {
+  title: "join to us",
+  description: "پیوستن به گروه برای تکمیل وب سایت",
+};
 
 const Participation: FC = () => {
   return (

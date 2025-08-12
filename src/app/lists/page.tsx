@@ -1,7 +1,13 @@
 import LessonCard from "@/components/LessonCard";
+import { Metadata } from "next";
 import React from "react";
 
 const numbers = Array.from({ length: 42 }, (_, i) => i + 1);
+
+export const metadata: Metadata = {
+  title: "list of book",
+  description: "لیست کتاب 504 کلمه ضروری انگلیسی و وضعیت کاربر",
+};
 
 function Lists() {
   return (
