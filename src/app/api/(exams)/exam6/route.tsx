@@ -53,7 +53,7 @@ export function GET(request: Request) {
       {
         id: 10,
         question:
-          "10. I could from the tone of his voice that he was in a bad mood.",
+          "I could from the tone of his voice that he was in a bad mood.",
         answer: "detect",
       },
       {
