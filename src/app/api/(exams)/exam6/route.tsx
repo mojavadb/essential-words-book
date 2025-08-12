@@ -5,7 +5,7 @@ export function GET(request: Request) {
         id: 1,
         question:
           "Each of our workers is trained to give your car a examination. (Which two words might fit this sentence?)",
-        answer: " thorough",
+        answer: "thorough",
       },
       {
         id: 2,
