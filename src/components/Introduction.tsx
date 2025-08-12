@@ -28,9 +28,59 @@ const kanit = Kanit({
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
+function TextBox({
+  isShowText,
+  setIsShowText,
+  dir,
+  title,
+}: {
+  isShowText: string;
+  setIsShowText: React.Dispatch<React.SetStateAction<string>>;
+  dir: string;
+  title: string;
+}) {
+  return (
+    <div
+      className="sm:w-full rounded-xl overflow-hidden shadow-lg border 
+          border-gray-100 bg-gray-100 transition-all duration-300"
+    >
+      <div
+        className={`flex items-center justify-between border-b border-gray-300 py-2 px-4 bg-gray-100 ${dir}`}
+      >
+        <h3 className="text-sm font-bold text-gray-800">{title}:</h3>
+        <button
+          className="p-2 hover:bg-gray-200 rounded-full transition-colors"
+          onClick={() => setIsShowText("")}
+        >
+          <Trash size={18} color="#464" />
+        </button>
+      </div>
+      <div className={`${dir} py-3 px-4 min-h-25 text-xs text-gray-800`}>
+        <AnimatePresence mode="wait">
+          {isShowText && (
+            <motion.p
+              key={isShowText}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="leading-5 md:leading-6 text-justify"
+            >
+              {isShowText}
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 function Introduction() {
   const [isShowTranslate, setIsShowTranslate] = React.useState<string>(
     "این کتاب، کتابی خودیار است."
+  );
+  const [isShowMainParagraph, setIsShowMainParagraph] = React.useState<string>(
+    "This is a self-help book."
   );
 
   const { data, error, isLoading } = useSWR<Data>(
@@ -77,61 +127,46 @@ function Introduction() {
         توجه: با کلیک روی هر جمله می‌توانید ترجمه آن را ببینید!
       </p>
 
-      <div className="grid gap-6 md:gap-12 lg:grid-cols-4">
-        <div className="lg:col-span-1">
-          <div className="max-w-sm rounded-xl overflow-hidden shadow-lg border border-gray-100 bg-white transition-all duration-300">
-            <div className="flex items-center justify-between border-b border-gray-300 py-2 px-4 bg-gray-50">
-              <h3 className="text-sm font-bold text-gray-800">ترجمه:</h3>
-              <button
-                className="p-2 hover:bg-gray-200 rounded-full transition-colors"
-                onClick={() => setIsShowTranslate("")}
-              >
-                <Trash size={18} color="#464" />
-              </button>
-            </div>
-            <div className="py-3 px-4 min-h-25 md:min-h-40 text-xs text-gray-800">
-              <AnimatePresence mode="wait">
-                {isShowTranslate && (
-                  <motion.p
-                    key={isShowTranslate}
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -5 }}
-                    transition={{ duration: 0.2 }}
-                    className="leading-5 md:leading-6 text-justify"
-                  >
-                    {isShowTranslate}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
+      <div className="flex flex-col gap-4 md:gap-8">
+        <div className="grid lg:grid-cols-2 gap-4">
+          <TextBox
+            isShowText={isShowMainParagraph}
+            setIsShowText={setIsShowMainParagraph}
+            dir="direction-ltr"
+            title="sentense"
+          />
+          <TextBox
+            isShowText={isShowTranslate}
+            setIsShowText={setIsShowTranslate}
+            dir="direction-rtl"
+            title="ترجمه"
+          />
         </div>
-
-        <div className="lg:col-span-3">
-          <div className="grid lg:grid-cols-2 gap-4 direction-ltr">
-            {paragraphs?.map((paragraph, parIndex) => (
-              <div
-                key={parIndex}
-                className={`p-6 rounded-lg border border-gray-200 bg-white hover:shadow-md transition-shadow duration-200 direction-ltr text-justify ${kanit.className}`}
-              >
-                <span className="font-bold text-gray-500">{`${
-                  parIndex + 1
-                }- `}</span>
-                {paragraph?.map((item, itemIndex) => (
-                  <motion.span
-                    key={itemIndex}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="text-black text-md cursor-pointer hover:bg-blue-100 px-1 rounded transition-colors"
-                    onClick={() => setIsShowTranslate(item.translate)}
-                  >
-                    {item.sentence}
-                  </motion.span>
-                ))}
-              </div>
-            ))}
-          </div>
+        <div className="grid lg:grid-cols-2 gap-4 direction-ltr">
+          {paragraphs?.map((paragraph, parIndex) => (
+            <div
+              key={parIndex}
+              className={`p-6 rounded-lg border border-gray-200 bg-white hover:shadow-md transition-shadow duration-200 direction-ltr text-justify ${kanit.className}`}
+            >
+              <span className="font-bold text-gray-500">{`${
+                parIndex + 1
+              }- `}</span>
+              {paragraph?.map((item, itemIndex) => (
+                <motion.span
+                  key={itemIndex}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="text-black text-md cursor-pointer hover:bg-blue-100 px-1 rounded transition-colors"
+                  onClick={() => {
+                    setIsShowTranslate(item.translate);
+                    setIsShowMainParagraph(item.sentence);
+                  }}
+                >
+                  {item.sentence}
+                </motion.span>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>
