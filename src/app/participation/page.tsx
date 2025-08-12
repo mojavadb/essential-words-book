@@ -17,7 +17,7 @@ interface InfoItemProps {
   href: string;
 }
 
-const CollaborationInvitation: FC = () => {
+const Participation: FC = () => {
   return (
     <div className="max-w-3xl mx-auto p-6 sm:p-8 bg-white rounded-2xl shadow-lg border border-gray-100">
       <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-blue-600 leading-snug">
@@ -139,4 +139,4 @@ const InfoItem: FC<InfoItemProps> = ({ icon, label, href }) => (
   </div>
 );
 
-export default CollaborationInvitation;
+export default Participation;
