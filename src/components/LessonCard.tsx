@@ -65,14 +65,24 @@ function LessonCard({ number }: { number: number }) {
         </p>
       </div>
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <Link
-          href={`/${number}`}
-          className="block text-center text-sm font-semibold px-6 py-2 rounded-full text-white bg-sky-600 hover:bg-sky-700 transition-all duration-300 shadow-lg"
-        >
-          {status === "unpassed" && "قفل"}
-          {status === "passed" && "گذراندن مجدد"}
-          {status === "equal" && "شروع"}
-        </Link>
+        {status === "unpassed" ? (
+          <button
+            type="button"
+            disabled={true}
+            className="block w-full text-center text-sm font-semibold px-6 py-2 rounded-full text-white bg-sky-600 hover:bg-sky-700 transition-all duration-300 shadow-lg"
+          >
+            {status === "unpassed" && "قفل"}
+          </button>
+        ) : (
+          <Link
+            href={`/${number}`}
+            className="block text-center text-sm font-semibold px-6 py-2 rounded-full text-white bg-sky-600 hover:bg-sky-700 transition-all duration-300 shadow-lg"
+          >
+            {status === "unpassed" && "قفل"}
+            {status === "passed" && "گذراندن مجدد"}
+            {status === "equal" && "شروع"}
+          </Link>
+        )}
       </motion.div>
     </motion.div>
   );
