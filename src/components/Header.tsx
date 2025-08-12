@@ -80,20 +80,16 @@ function Header() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.5 }}
-        className="flex flex-col sm:flex-row items-center gap-6"
+        className="text-center"
       >
         <a
           href="#Introduction"
-          className="px-6 py-3 rounded-full flex items-center gap-2 bg-gradient-to-r from-sky-500 to-sky-700 hover:from-sky-600 hover:to-sky-800 text-white font-bold shadow-md transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50"
+          className="px-6 py-3 rounded-full flex items-center gap-2 bg-gradient-to-r 
+          from-cyan-700 to-cyan-900 hover:from-cyan-800 hover:to-cyan-950 text-white font-bold 
+          shadow-md transition-all duration-300 transform hover:scale-105 focus:ring-2 
+          focus:ring-cyan-600 focus:ring-opacity-50"
         >
           <span>مقدمه کتاب</span>
-          <MoveLeft size={20} />
-        </a>
-        <a
-          href="#status"
-          className="px-6 py-3 rounded-full flex items-center gap-2 bg-gradient-to-r from-cyan-700 to-cyan-900 hover:from-cyan-800 hover:to-cyan-950 text-white font-bold shadow-md transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-cyan-600 focus:ring-opacity-50"
-        >
-          <span>وضعیت شما</span>
           <MoveLeft size={20} />
         </a>
       </motion.div>
