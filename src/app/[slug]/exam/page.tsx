@@ -130,7 +130,7 @@ function QuestionCard({
                 <Link
                   className="text-green-800"
                   href={`/`}
-                  onClick={() => setLastLesson((l) => l + 1)}
+                  onClick={() => setLastLesson((l) => l.toString())}
                 >
                   home
                 </Link>
