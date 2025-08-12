@@ -70,7 +70,7 @@ function Nav() {
         href="/1"
         className="text-blue-600 text-sm md:rounded-full md:text-white md:bg-blue-800 md:px-5 md:py-2 hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
       >
-        شروع
+        درس یک
       </Link>
     </nav>
   );
