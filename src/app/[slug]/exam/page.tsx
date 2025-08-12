@@ -129,12 +129,12 @@ function QuestionCard({
                 <p className="text-green-800">accept</p>
                 <Link
                   className="text-green-800"
-                  href={`/`}
+                  href={`/lists`}
                   onClick={() =>
                     setLastLesson((l) => (Number(l) + 1).toString())
                   }
                 >
-                  home
+                  Status
                 </Link>
               </>
             ) : (
@@ -144,7 +144,7 @@ function QuestionCard({
                   onClick={() => window.location.reload()}
                   className="text-red-800 cursor-pointer"
                 >
-                  try again
+                  Try again
                 </button>
               </>
             )}
