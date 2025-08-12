@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLastLesson } from "@/Provider/LatestLesson";
 import React from "react";
+import { LockKeyhole, LockOpen, Play } from "lucide-react";
 
 function LessonCard({ number }: { number: number }) {
   const { lastLesson } = useLastLesson();
@@ -69,18 +70,30 @@ function LessonCard({ number }: { number: number }) {
           <button
             type="button"
             disabled={true}
-            className="block w-full text-center text-sm font-semibold px-6 py-2 rounded-full text-white bg-sky-600 hover:bg-sky-700 transition-all duration-300 shadow-lg"
+            className="block flex items-center gap-2
+             w-full justify-center text-sm font-semibold px-6 py-2 rounded-full text-white 
+             bg-sky-600 hover:bg-sky-700 transition-all duration-300 shadow-lg"
           >
-            {status === "unpassed" && "قفل"}
+            <span>قفل</span>
+            <LockKeyhole size={20} />
           </button>
         ) : (
           <Link
             href={`/${number}`}
-            className="block text-center text-sm font-semibold px-6 py-2 rounded-full text-white bg-sky-600 hover:bg-sky-700 transition-all duration-300 shadow-lg"
+            className="flex gap-2 items-center justify-center block text-center text-sm font-semibold px-6 py-2 rounded-full text-white bg-sky-600 hover:bg-sky-700 transition-all duration-300 shadow-lg"
           >
-            {status === "unpassed" && "قفل"}
-            {status === "passed" && "گذراندن مجدد"}
-            {status === "equal" && "شروع"}
+            {status === "passed" && (
+              <>
+                <span>گذراندن مجدد</span>
+                <LockOpen size={16} />
+              </>
+            )}
+            {status === "equal" && (
+              <>
+                <span>شروع</span>
+                <Play size={16} />
+              </>
+            )}
           </Link>
         )}
       </motion.div>
