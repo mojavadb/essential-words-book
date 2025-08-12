@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 export function GET(request: Request) {
   const data = {
     exam: [

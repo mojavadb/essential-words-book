@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 export function GET(request: Request) {
   const paragraphs = {
     paragraph_one: [
