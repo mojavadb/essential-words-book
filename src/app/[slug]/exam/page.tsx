@@ -255,18 +255,23 @@ export default function Lesson() {
           {data?.exam.map(
             (question, index) =>
               index === indexOfQuestion && (
-                <QuestionCard
+                <React.Suspense
                   key={question.id}
-                  question={question}
-                  indexOfQuestion={indexOfQuestion}
-                  totalQuestions={data.exam.length}
-                  score={score}
-                  clientAnswer={clientAnswer}
-                  setClientAnswer={setClientAnswer}
-                  handleChecking={handleChecking}
-                  setIsShowingResult={setIsShowingResult}
-                  isShowingResult={isShowingResult}
-                />
+                  fallback={<div>در حال بار گذاری...</div>}
+                >
+                  <QuestionCard
+                    key={question.id}
+                    question={question}
+                    indexOfQuestion={indexOfQuestion}
+                    totalQuestions={data.exam.length}
+                    score={score}
+                    clientAnswer={clientAnswer}
+                    setClientAnswer={setClientAnswer}
+                    handleChecking={handleChecking}
+                    setIsShowingResult={setIsShowingResult}
+                    isShowingResult={isShowingResult}
+                  />
+                </React.Suspense>
               )
           )}
         </AnimatePresence>
