@@ -38,6 +38,7 @@ function Nav() {
                 <li key={item.title}>
                   <Link
                     href={item.href}
+                    onClick={() => setMenuOpen(false)}
                     className="block px-5 py-3 text-sm hover:bg-neutral-100 transition-colors duration-150"
                   >
                     {item.title}
